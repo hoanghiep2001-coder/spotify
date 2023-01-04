@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Gotham-light";
+}
+
+@font-face {
+  font-family: "Gotham-bold";
+  src: url(../../Spotify-Font/Gotham-Bold.otf);
+}
+
+@font-face {
+  font-family: "Gotham-light";
+  src: url(../../Spotify-Font/Gotham-Light.otf);
+}
+
+@font-face {
+  font-family: "Gotham-thin";
+  src: url(../../Spotify-Font/Gotham-Thin.otf);
+}
+
+@font-face {
+  font-family: "Gotham-medium";
+  src: url(../../Spotify-Font/GothamMedium.ttf);
+}
