@@ -1,0 +1,27 @@
+.wrapper {
+  min-height: 64px;
+  position: sticky;
+  top: 0;
+}
+
+.inner {
+  padding: 16px 32px;
+  height: 100%;
+}
+
+.arrown-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.prevButton,
+.nextButton {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background-color: var(--background-press);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

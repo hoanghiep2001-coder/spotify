@@ -9,8 +9,12 @@
   color: var(--text-subdued);
   font-family: "Gotham-bold";
   min-height: 40px;
+  transition: all 0.2s ease-out;
+  &:hover {
+    color: var(--text-base);
+  }
   &.active {
-    color: white;
+    color: var(--text-base);
   }
 }
 
