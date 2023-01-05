@@ -1,0 +1,25 @@
+.list {
+  padding: 0 24px;
+  margin-bottom: 24px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  color: var(--text-subdued);
+  font-family: "Gotham-bold";
+  min-height: 40px;
+  &.active {
+    color: white;
+  }
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.text {
+  font-family: "Gotham-bold";
+  font-size: 14px;
+  margin-left: 16px;
+}

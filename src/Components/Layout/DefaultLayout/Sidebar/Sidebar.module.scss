@@ -1,0 +1,19 @@
+.wrapper {
+  min-height: 500px;
+  background-color: var(--background-press);
+  padding-top: 24px;
+  max-width: 18%;
+  flex: 0 0 18%;
+  color: var(--text-subdued);
+}
+
+.inner {
+  padding: 0 24px;
+  margin-bottom: 18px;
+}
+
+.logo {
+  height: var(--pc-logo-height);
+  width: var(--pc-logo-width);
+  color: var(--text-base);
+}
