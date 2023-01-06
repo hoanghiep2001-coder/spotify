@@ -1,5 +1,7 @@
+import Welcome from "~/Components/Layout/components/Home/Welcome";
+
 function Home() {
-  return <div>Home</div>;
+  return <Welcome />;
 }
 
 export default Home;

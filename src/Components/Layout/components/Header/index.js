@@ -1,8 +1,15 @@
-import classNames from "classnames/bind";
 import { useEffect, useState } from "react";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+import classNames from "classnames/bind";
 import Button from "~/Components/Button";
-import { ArrownLeftIcon, ArrownRightIcon } from "~/Components/Icons/icons";
+import {
+  ArrownDownIcon,
+  ArrownLeftIcon,
+  ArrownRightIcon,
+} from "~/Components/Icons/icons";
 import styles from "./Header.module.scss";
+import avatar from "~/image/User/avt.jpg";
 
 const cb = classNames.bind(styles);
 function HeaderComp() {
@@ -10,19 +17,19 @@ function HeaderComp() {
   const [nextPage, setNextPage] = useState("/");
   const [headerStyle, setHeaderStyle] = useState({
     opacity: "1",
-    backgroundColor: "rgb(72, 32, 176)",
+    backgroundColor: "rgba(30,15,71,1)",
   });
   useEffect(() => {
     const handleWindowScroll = () => {
       if (window.scrollY > 100) {
         setHeaderStyle({
           opacity: "0.45",
-          backgroundColor: "rgb(72, 32, 176)",
+          backgroundColor: "rgba(30,15,71, 0.45)",
         });
       } else if (window.scrollY > 200) {
         setHeaderStyle({
           opacity: "1",
-          backgroundColor: "rgb(72, 32, 176)",
+          backgroundColor: "rgb(30,15,71)",
         });
       }
     };
@@ -35,11 +42,8 @@ function HeaderComp() {
   }, []);
   return (
     <div className={cb("wrapper")}>
-      <header
-        className={cb("inner")}
-        aria-label="Menu người dùng và thanh trên cùng"
-        style={headerStyle}
-      >
+      <header className={cb("inner")} style={headerStyle}>
+        <div className={cb("overlay")}></div>
         <div className={cb("arrown-actions")}>
           <Button
             to={prevPage}
@@ -55,6 +59,30 @@ function HeaderComp() {
           >
             <ArrownRightIcon />
           </Button>
+        </div>
+        <div className={cb("user-actions")}>
+          <Tippy placement="bottom" content="Nâng cấp lên Premium">
+            <Button
+              href="https://www.spotify.com/vn-vi/premium/?utm_source=app&utm_medium=desktop&utm_campaign=upgrade"
+              blank=""
+              target="_"
+              className={cb("button-upgrade")}
+            >
+              Nâng cấp
+            </Button>
+          </Tippy>
+
+          <Tippy content="Dương Hiệp" placement="bottom">
+            <div className={cb("user-widget")}>
+              <img
+                src={avatar}
+                alt="user-avatar"
+                className={cb("user-avatar")}
+              />
+              <h3 className={cb("user-name")}>Dương Hiệp</h3>
+              <ArrownDownIcon className={cb("icon-arrownDown")} />
+            </div>
+          </Tippy>
         </div>
       </header>
     </div>

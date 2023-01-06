@@ -7,18 +7,26 @@ import MusicPlayer from "./MusicPlayer";
 const cb = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
-  const windowHeight = window.innerHeight - 90 + "px";
+  const sidebarHeight = window.innerHeight - 90 + "px";
+  const contentHeight = window.innerHeight - 90 - 64 + "px";
   return (
     <div
       className={cb("wrapper")}
       style={{
-        height: windowHeight,
+        height: sidebarHeight,
       }}
     >
       <Sidebar />
       <div className={cb("container")}>
         <Header />
-        <div className={cb("content")}>{children}</div>
+        <div
+          className={cb("content")}
+          style={{
+            maxHeight: contentHeight,
+          }}
+        >
+          {children}
+        </div>
       </div>
       <MusicPlayer />
     </div>
