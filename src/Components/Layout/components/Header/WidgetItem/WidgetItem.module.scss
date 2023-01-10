@@ -1,0 +1,23 @@
+.widget-link {
+  padding: 12px 8px 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:hover {
+    background-color: var(--background-tinted-highlight);
+    .widget-wrapper,
+    .widget-title {
+      color: var(--text-base);
+    }
+  }
+}
+
+.widget-wrapper {
+  color: hsla(0, 0%, 100%, 0.9);
+}
+
+.widget-title {
+  font-size: 1.4rem;
+  color: hsla(0, 0%, 100%, 0.9);
+  font-family: "Gotham-light";
+}

@@ -5,6 +5,7 @@
   text-decoration: none;
   list-style: none;
   font-family: "Gotham-light";
+  transition: all 0.2s ease-out;
 }
 
 :root {
@@ -21,6 +22,7 @@
   --background-unsafe-for-small-text-base: #121212;
   --background-unsafe-for-small-text-highlight: #121212;
   --background-unsafe-for-small-text-press: #121212;
+  --bg-color: hsla(0, 0%, 100%, 0.3);
   --text-base: #fff;
   --text-subdued: #a7a7a7;
   --text-bright-accent: #1ed760;
@@ -37,10 +39,13 @@
   --essential-announcement: #0d72ea;
   --decorative-base: #fff;
   --decorative-subdued: #292929;
-  --background-noise: "~/image/thumb/backgroundNoise.svg";
+
+  --background-noise: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDMwMHYzMDBIMHoiLz48L3N2Zz4=);
   --pc-sidebar-width: 240px;
   --pc-logo-height: 40px;
   --pc-logo-width: 131px;
+  --item-height: 80px;
+  --item-width: 80px;
 }
 
 ::-webkit-scrollbar {
@@ -60,6 +65,10 @@ svg {
   vertical-align: middle;
 }
 
+section {
+  margin-bottom: 16px;
+}
+
 @font-face {
   font-family: "Gotham-bold";
   src: url(../../font/static/Inter-Bold.ttf);
@@ -67,6 +76,11 @@ svg {
 
 @font-face {
   font-family: "Gotham-light";
+  src: url(../../font/static/Inter-Light.ttf);
+}
+
+@font-face {
+  font-family: "Gotham-regular";
   src: url(../../font/static/Inter-Regular.ttf);
 }
 

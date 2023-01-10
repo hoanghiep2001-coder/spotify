@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import styles from "./DefaultLayout.module.scss";
 import classNames from "classnames/bind";
 import MusicPlayer from "./MusicPlayer";
+import { useEffect, useRef } from "react";
 
 const cb = classNames.bind(styles);
 
@@ -18,8 +19,9 @@ function DefaultLayout({ children }) {
     >
       <Sidebar />
       <div className={cb("container")}>
-        <Header />
+        <Header id="header" />
         <div
+          id="main-content"
           className={cb("content")}
           style={{
             maxHeight: contentHeight,

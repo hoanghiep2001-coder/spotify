@@ -5,9 +5,9 @@ import { NavLink } from "react-router-dom";
 import RootList from "../../components/Sidebar/RootList";
 import { DownloadIcon, SpotifyLogo } from "~/Components/Icons/icons";
 const cb = classNames.bind(styles);
-function Sidebar() {
+function Sidebar({ id }) {
   return (
-    <div className={cb("wrapper")}>
+    <div id={id} className={cb("wrapper")}>
       <div className={cb("inner")}>
         <NavLink className={cb("link-home")} to={"/"}>
           <SpotifyLogo className={cb("logo")} />

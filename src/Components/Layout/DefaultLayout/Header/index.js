@@ -1,7 +1,7 @@
 import HeaderComp from "../../components/Header";
 
-function Header() {
-  return <HeaderComp />;
+function Header({ ...props }) {
+  return <HeaderComp {...props} />;
 }
 
 export default Header;

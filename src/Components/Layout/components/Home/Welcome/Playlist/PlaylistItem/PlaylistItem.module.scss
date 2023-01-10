@@ -1,0 +1,43 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-tinted-highlight);
+  border-radius: 4px;
+}
+
+.thumbnail {
+}
+
+.thumbnail img {
+  width: var(--item-width);
+  height: var(--item-height);
+  object-fit: cover;
+  border-start-start-radius: 4px;
+  border-end-start-radius: 4px;
+}
+
+.status {
+  display: flex;
+  padding: 0 16px;
+  flex: 1;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.6rem;
+  color: var(--text-base);
+  font-family: "Gotham-bold";
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--essential-bright-accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--background-press);
+}

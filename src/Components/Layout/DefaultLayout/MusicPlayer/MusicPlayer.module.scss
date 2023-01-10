@@ -3,7 +3,158 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: red;
+  background-color: #181818;
   z-index: 1000;
   min-height: 90px;
+}
+
+.inner {
+  padding: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.song-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 2;
+}
+
+.song-image {
+  width: 56px;
+  height: 56px;
+}
+
+.song-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 14px;
+  flex: 1;
+}
+
+.song-title {
+  font-size: 1.4rem;
+  color: var(--text-base);
+  font-family: "Gotham-regular";
+  font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.song-author {
+  font-size: 1.1rem;
+  color: #b3b3b3;
+  margin-top: 4px;
+  font-family: "Gotham-regular";
+  cursor: pointer;
+
+  &:hover {
+    color: var(--text-base);
+
+    text-decoration: underline;
+  }
+}
+
+.heart-icon {
+  color: var(--text-subdued);
+  cursor: pointer;
+}
+
+// ----------- player
+.song-player {
+  flex: 3;
+}
+
+.player-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.player-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  .wrapper-icon {
+    &:nth-child(1) {
+      margin-right: 16px;
+    }
+    &:nth-child(5) {
+      margin-left: 16px;
+    }
+  }
+}
+
+.song-status {
+  background-color: var(--decorative-base);
+  padding: 8px;
+  border-radius: 50%;
+  margin: 0 16px;
+  .player-icon {
+    color: var(--background-base);
+  }
+}
+
+.wrapper-icon {
+  margin: 0 8px;
+}
+
+.player-icon {
+  color: #b3b3b3;
+}
+
+// audio
+.audio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 18px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+.audio-bar {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 4px;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 2px;
+  border: none;
+  background-color: var(--bg-color);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--text-base);
+    cursor: pointer;
+  }
+}
+
+.time-start p,
+.time-end p {
+  color: var(--text-subdued);
+  font-family: "Gotham-regular";
+}
+
+// extra-actions
+.song-extra-actions {
+  flex: 2;
 }

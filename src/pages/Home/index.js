@@ -1,5 +1,4 @@
 import Welcome from "~/Components/Layout/components/Home/Welcome";
-
 function Home() {
   return <Welcome />;
 }

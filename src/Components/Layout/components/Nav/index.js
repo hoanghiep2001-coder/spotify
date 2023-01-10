@@ -1,38 +1,26 @@
 import styles from "./Navigation.module.scss";
 import classNames from "classnames/bind";
-import { NavLink } from "react-router-dom";
-import { HomeIcon, LibraryIcon, SearchIcon } from "~/Components/Icons/icons";
+import NavItem from "./NavItem";
+import { HomeIcon, SearchIcon, LibraryIcon } from "~/Components/Icons/icons";
+import { useState } from "react";
+
 const cb = classNames.bind(styles);
 function Navigation() {
   return (
     <ul className={cb("list")}>
-      <li>
-        <NavLink
-          className={(nav) => cb("item", { active: nav.isActive })}
-          to={"/"}
-        >
-          <HomeIcon className={cb("icon")} />
-          <h3 className={cb("text")}>Trang chủ</h3>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={(nav) => cb("item", { active: nav.isActive })}
-          to={"/search"}
-        >
-          <SearchIcon className={cb("icon")} />
-          <h3 className={cb("text")}>Tìm kiếm</h3>
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={(nav) => cb("item", { active: nav.isActive })}
-          to={"/library"}
-        >
-          <LibraryIcon className={cb("icon")} />
-          <h3 className={cb("text")}>Thư viện</h3>
-        </NavLink>
-      </li>
+      <NavItem icon={<HomeIcon />} title="Trang chủ" to="/" urlStorage="/" />
+      <NavItem
+        icon={<SearchIcon />}
+        title="Tìm kiếm"
+        to="/search"
+        urlStorage="/search"
+      />
+      <NavItem
+        icon={<LibraryIcon />}
+        title="Thư viện"
+        to="/library"
+        urlStorage="/library"
+      />
     </ul>
   );
 }

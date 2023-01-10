@@ -5,8 +5,10 @@
 .container {
   flex: 1;
   color: var(--text-base);
+  position: relative;
 }
 
 .content {
-  background-color: green;
+  padding: 24px 32px;
+  background-color: black;
 }
