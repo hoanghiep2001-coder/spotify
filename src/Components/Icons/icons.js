@@ -148,6 +148,7 @@ export const PauseIcon = ({
   width = "1.6rem",
   height = "1.6rem",
   className,
+  viewBox = "0 0 16 16",
 }) => (
   <svg
     role="img"
@@ -155,11 +156,31 @@ export const PauseIcon = ({
     width={width}
     aria-hidden="true"
     className={className}
-    viewBox="0 0 16 16"
+    viewBox={viewBox}
     fill="currentColor"
     data-encore-id="icon"
   >
     <path d="M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7H2.7zm8 0a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-2.6z"></path>
+  </svg>
+);
+
+export const PauseIcon2 = ({
+  width = "2.8rem",
+  height = "2.8rem",
+  className,
+  viewBox = "0 0 24 24",
+}) => (
+  <svg
+    role="img"
+    height={height}
+    width={width}
+    aria-hidden="true"
+    className={className}
+    viewBox={viewBox}
+    fill="currentColor"
+    data-encore-id="icon"
+  >
+    <path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"></path>
   </svg>
 );
 
@@ -418,5 +439,46 @@ export const DeviceIcon = ({
   >
     <path d="M6 2.75C6 1.784 6.784 1 7.75 1h6.5c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0114.25 15h-6.5A1.75 1.75 0 016 13.25V2.75zm1.75-.25a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h6.5a.25.25 0 00.25-.25V2.75a.25.25 0 00-.25-.25h-6.5zm-6 0a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25H4V11H1.75A1.75 1.75 0 010 9.25v-6.5C0 1.784.784 1 1.75 1H4v1.5H1.75zM4 15H2v-1.5h2V15z"></path>
     <path d="M13 10a2 2 0 11-4 0 2 2 0 014 0zm-1-5a1 1 0 11-2 0 1 1 0 012 0z"></path>
+  </svg>
+);
+
+export const TimeIcon = ({
+  width = "1.6rem",
+  height = "1.6rem",
+  className,
+  viewBox = "0 0 16 16",
+}) => (
+  <svg
+    role="img"
+    height={height}
+    width={width}
+    aria-hidden="true"
+    className={className}
+    viewBox={viewBox}
+    fill="currentColor"
+    data-encore-id="icon"
+  >
+    <path d="M8 3.25a.75.75 0 01.75.75v3.25H11a.75.75 0 010 1.5H7.25V4A.75.75 0 018 3.25z"></path>{" "}
+    <path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z"></path>
+  </svg>
+);
+
+export const DotsIcon = ({
+  width = "1.6rem",
+  height = "1.6rem",
+  className,
+  viewBox = "0 0 16 16",
+}) => (
+  <svg
+    role="img"
+    height={height}
+    width={width}
+    aria-hidden="true"
+    className={className}
+    viewBox={viewBox}
+    fill="currentColor"
+    data-encore-id="icon"
+  >
+    <path d="M3 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm6.5 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM16 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path>
   </svg>
 );

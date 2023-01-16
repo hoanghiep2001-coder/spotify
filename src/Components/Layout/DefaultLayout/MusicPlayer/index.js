@@ -14,6 +14,7 @@ import {
   PrevStickIcon,
   SoundIcon,
 } from "~/Components/Icons/icons";
+import Tippy from "@tippyjs/react";
 const cb = classNames.bind(styles);
 function MusicPlayer() {
   const [songTitle, setSongTitle] = useState("Và ngày nào đó");
@@ -24,7 +25,6 @@ function MusicPlayer() {
   const handlleVolumnProgress = () => {
     console.log("test");
   };
-  localStorage.setItem("now_playing", {});
   return (
     <div className={cb("wrapper")}>
       <div className={cb("inner")}>
@@ -33,7 +33,9 @@ function MusicPlayer() {
             <Image className={cb("song-image")} />
           </div>
           <div className={cb("song-content")}>
-            <h3 className={cb("song-title")}>{songTitle}</h3>
+            <div className={cb("wrapper-song-title")}>
+              <h3 className={cb("song-title")}>{songTitle}</h3>
+            </div>
             <p className={cb("song-author")}>{songAuthor}</p>
           </div>
           <div>
@@ -44,10 +46,14 @@ function MusicPlayer() {
           <div className={cb("player-wrapper")}>
             <div className={cb("player-actions")}>
               <div className={cb("wrapper-icon")}>
-                <FlexRandomIcon className={cb("player-icon")} />
+                <Tippy content="Trộn bài">
+                  <FlexRandomIcon className={cb("player-icon")} />
+                </Tippy>
               </div>
               <div className={cb("wrapper-icon")}>
-                <PrevStickIcon className={cb("player-icon")} />
+                <Tippy content="Trước">
+                  <PrevStickIcon className={cb("player-icon")} />
+                </Tippy>
               </div>
               <div className={cb("song-status")}>
                 {true ? (
@@ -57,10 +63,14 @@ function MusicPlayer() {
                 )}
               </div>
               <div className={cb("wrapper-icon")}>
-                <NextStickIcon className={cb("player-icon")} />
+                <Tippy content="Tiếp">
+                  <NextStickIcon className={cb("player-icon")} />
+                </Tippy>
               </div>
               <div className={cb("wrapper-icon")}>
-                <FlexBackIcon className={cb("player-icon")} />
+                <Tippy content="Chế độ lặp lại">
+                  <FlexBackIcon className={cb("player-icon")} />
+                </Tippy>
               </div>
             </div>
             <div className={cb("audio")}>
@@ -86,13 +96,13 @@ function MusicPlayer() {
         </div>
         <div className={cb("song-extra-actions")}>
           <div className={cb("wrapper-icon")}>
-            <ListIcon />
+            <ListIcon className={cb("player-icon")} />
           </div>
           <div className={cb("wrapper-icon")}>
-            <DeviceIcon />
+            <DeviceIcon className={cb("player-icon")} />
           </div>
           <div className={cb("wrapper-icon")}>
-            <SoundIcon />
+            <SoundIcon className={cb("player-icon")} />
           </div>
           <div className={cb("song-volumn")}>
             <input

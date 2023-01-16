@@ -16,7 +16,7 @@ import WidgetItem from "./WidgetItem";
 const cb = classNames.bind(styles);
 function HeaderComp({ ...props }) {
   const [headerStyle, setHeaderStyle] = useState({
-    opacity: "1",
+    opacity: "0",
     backgroundColor: "rgb(29,13,70)",
   });
   useEffect(() => {
@@ -43,8 +43,8 @@ function HeaderComp({ ...props }) {
 
   return (
     <div {...props} className={cb("wrapper")}>
-      <header className={cb("inner")} style={headerStyle}>
-        <div className={cb("overlay")}></div>
+      <header className={cb("inner")}>
+        <div className={cb("overlay")} style={headerStyle}></div>
         <div className={cb("arrown-actions")}>
           <Button
             to={

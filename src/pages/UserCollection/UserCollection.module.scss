@@ -1,0 +1,19 @@
+.handleSong-icon {
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  align-items: center;
+  background-color: #1ed760;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: unset;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.handleSong-mainIcon {
+  transform: translateY(14px);
+  color: var(--background-press);
+}
