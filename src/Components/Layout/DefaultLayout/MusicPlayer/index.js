@@ -1,7 +1,8 @@
+import { SongContext } from "~/store/SongContext";
 import styles from "./MusicPlayer.module.scss";
 import classNames from "classnames/bind";
 import Image from "~/Components/Image";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   DeviceIcon,
   FlexBackIcon,
@@ -10,13 +11,13 @@ import {
   ListIcon,
   NextStickIcon,
   PauseIcon,
-  PlayIcon,
+  PlayIcon2,
   PrevStickIcon,
   SoundIcon,
 } from "~/Components/Icons/icons";
-import Tippy from "@tippyjs/react";
 const cb = classNames.bind(styles);
 function MusicPlayer() {
+  const context = useContext(SongContext);
   const [songTitle, setSongTitle] = useState("Và ngày nào đó");
   const [songAuthor, setSongAuthor] = useState("Vũ Thảo My");
   const handlleAudioProgress = () => {
@@ -25,6 +26,7 @@ function MusicPlayer() {
   const handlleVolumnProgress = () => {
     console.log("test");
   };
+
   return (
     <div className={cb("wrapper")}>
       <div className={cb("inner")}>
@@ -45,32 +47,37 @@ function MusicPlayer() {
         <div className={cb("song-player")}>
           <div className={cb("player-wrapper")}>
             <div className={cb("player-actions")}>
-              <div className={cb("wrapper-icon")}>
-                <Tippy content="Trộn bài">
+              <div
+                className={cb("wrapper-icon")}
+                onClick={context.toggleActiveMixIcon}
+              >
+                <div className={cb(context.mixSongClass)}>
                   <FlexRandomIcon className={cb("player-icon")} />
-                </Tippy>
+                </div>
               </div>
               <div className={cb("wrapper-icon")}>
-                <Tippy content="Trước">
-                  <PrevStickIcon className={cb("player-icon")} />
-                </Tippy>
+                <PrevStickIcon className={cb("player-icon")} />
               </div>
-              <div className={cb("song-status")}>
-                {true ? (
+              <div
+                className={cb("song-status")}
+                onClick={context.togglePlaySong}
+              >
+                {context.playSong ? (
                   <PauseIcon className={cb("player-icon")} />
                 ) : (
-                  <PlayIcon className={cb("player-icon")} />
+                  <PlayIcon2 className={cb("player-icon")} />
                 )}
               </div>
               <div className={cb("wrapper-icon")}>
-                <Tippy content="Tiếp">
-                  <NextStickIcon className={cb("player-icon")} />
-                </Tippy>
+                <NextStickIcon className={cb("player-icon")} />
               </div>
-              <div className={cb("wrapper-icon")}>
-                <Tippy content="Chế độ lặp lại">
+              <div
+                className={cb("wrapper-icon")}
+                onClick={context.toggleActiveRandomIcon}
+              >
+                <div className={cb(context.turnbackSongClass)}>
                   <FlexBackIcon className={cb("player-icon")} />
-                </Tippy>
+                </div>
               </div>
             </div>
             <div className={cb("audio")}>
@@ -82,14 +89,14 @@ function MusicPlayer() {
                   type="range"
                   className={cb("audio-bar")}
                   value={1}
-                  // step={1}
+                  step={1}
                   onChange={handlleAudioProgress}
                   min={1}
                   max={100}
                 />
               </div>
               <div className={cb("time-end")}>
-                <p> 04.50</p>
+                <p>04.50</p>
               </div>
             </div>
           </div>

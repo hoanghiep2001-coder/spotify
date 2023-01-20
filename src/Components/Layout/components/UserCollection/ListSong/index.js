@@ -1,4 +1,3 @@
-import Tippy from "@tippyjs/react";
 import classNames from "classnames/bind";
 import { TimeIcon } from "~/Components/Icons/icons";
 
@@ -22,11 +21,9 @@ function ListSong({ children }) {
         <div className={cb("title-createdAt")} element-explain="col-2">
           <h3>NGÀY THÊM</h3>
         </div>
-        <Tippy content="Thời lượng">
-          <div className={cb("title-time")} element-explain="col-2">
-            <TimeIcon />
-          </div>
-        </Tippy>
+        <div className={cb("title-time")} element-explain="col-2">
+          <TimeIcon />
+        </div>
       </div>
       <div className={cb("content")}>{children}</div>
     </div>

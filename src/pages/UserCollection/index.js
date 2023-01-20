@@ -6,7 +6,6 @@ import styles from "./UserCollection.module.scss";
 const cb = classNames.bind(styles);
 function UserCollection() {
   const getSongApi = JSON.parse(localStorage.getItem("api"));
-  console.log(getSongApi.playlists.userCollection);
   return (
     <div className={cb("inner")}>
       <section className={cb("handleSong-wrapper")}>

@@ -213,3 +213,25 @@
 .song-volumn {
   width: 93px;
 }
+
+// active icon
+
+.active {
+  color: #1db954;
+  position: relative;
+  &::after {
+    position: absolute;
+    bottom: -8px;
+    content: "";
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background-color: #1db954;
+    z-index: 1;
+  }
+  .player-icon {
+    color: inherit;
+  }
+}

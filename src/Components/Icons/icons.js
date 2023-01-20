@@ -300,6 +300,26 @@ export const PlayIcon = ({
   </svg>
 );
 
+export const PlayIcon2 = ({
+  width = "1.6rem",
+  height = "1.6rem",
+  className,
+  viewBox = "0 0 16 16",
+}) => (
+  <svg
+    role="img"
+    height={height}
+    width={width}
+    aria-hidden="true"
+    className={className}
+    viewBox={viewBox}
+    fill="currentColor"
+    data-encore-id="icon"
+  >
+    <path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path>{" "}
+  </svg>
+);
+
 export const UpgradeIcon = ({
   width = "1.6rem",
   height = "1.6rem",
