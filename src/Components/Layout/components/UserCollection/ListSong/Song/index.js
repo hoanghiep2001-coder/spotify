@@ -10,6 +10,7 @@ import styles from "./Song.module.scss";
 const cb = classNames.bind(styles);
 
 function Song({
+  dataID = false,
   songID,
   songThumb,
   songTitle,
@@ -19,17 +20,16 @@ function Song({
   onClick,
 }) {
   const [songActiveClass, setSongActiveClass] = useState("song-default");
-  // const [toggleSongIcon, setToggleSongIcon] = useState(false);
+  const [toggleSongIcon, setToggleSongIcon] = useState(false);
   const dayCreated = 15;
   const date = new Date();
   const today = date.getDate();
   let dayCreatedHtml = today - dayCreated;
   const handleActiveClickSong = () => {
-    const activeSong = document.querySelector("[data-song].song-active");
-    console.log(activeSong);
+    const activeSong = document.querySelector("[data-song='song-active']");
+    console.log(document.querySelectorAll("[data-song='song-active']"));
     if (activeSong) {
-      activeSong.classList.add("song-default");
-      activeSong.classList.remove("song-active");
+      activeSong.setAttribute("data-song", "song-default");
     }
     setSongActiveClass("song-active");
   };
@@ -39,56 +39,57 @@ function Song({
     audio.setAttribute("src", localStorage.getItem("now_playing"));
     audio.play();
   };
-  // const handleSetToggleSongIcon = () => {
-  //   if (songActiveClass === "active") {
-  //     setToggleSongIcon(<PauseIcon width="1.4rem" height="1.4rem" />);
-  //   } else {
-  //     setToggleSongIcon(<PlayIcon2 width="1.4rem" height="1.4rem" />);
-  //   }
-  // };
-  // const removeHandleSetToggleSongIcon = () => {
-  //   setToggleSongIcon(false);
-  // };
+  const handleSetToggleSongIcon = () => {
+    if (songActiveClass === "song-active") {
+      setToggleSongIcon(<PauseIcon width="1.4rem" height="1.4rem" />);
+    } else {
+      setToggleSongIcon(<PlayIcon2 width="1.4rem" height="1.4rem" />);
+    }
+  };
+  const removeHandleSetToggleSongIcon = () => {
+    setToggleSongIcon(false);
+  };
   return (
     <div
-      data-song
+      data-song={songActiveClass}
       onClick={handleActiveClickSong}
-      className={cb(songActiveClass)}
-      // onMouseEnter={handleSetToggleSongIcon}
-      // onMouseLeave={removeHandleSetToggleSongIcon}
+      onMouseEnter={handleSetToggleSongIcon}
+      onMouseLeave={removeHandleSetToggleSongIcon}
     >
       <div
+        data-id={dataID}
         className={cb("item")}
         element-explain="row"
         onClick={handlePlaySong}
       >
         <div className={cb("title")} element-explain="col-5 row">
           <div className={cb("numbered")}>
-            <h3>
-              {songActiveClass === "song-active" ? (
-                <Image
-                  src="https://open.spotifycdn.com/cdn/images/equaliser-green.f8937a92.svg"
-                  alt="play-note-icon"
-                />
-              ) : (
-                songID
-              )}
-              {/* {toggleSongIcon === false && songActiveClass !== "active"
-                ? songID
-                : toggleSongIcon} */}
-            </h3>
+            {songActiveClass === "song-active" ? (
+              <Image
+                className={cb("active-img-icon")}
+                src="https://open.spotifycdn.com/cdn/images/equaliser-green.f8937a92.svg"
+                alt="play-note-icon"
+              />
+            ) : (
+              <h3>{toggleSongIcon === false ? songID : toggleSongIcon}</h3>
+            )}
           </div>
           <div className={cb("title-wrapper")}>
             <div className={cb("thumbnail")}>
               <img
+                data-song-thumbnail={songThumb}
                 className={cb("thumbnail-desc")}
                 src={songThumb}
-                alt={songThumb}
+                alt={"Ảnh Bài Hát"}
               />
             </div>
             <div className={cb("title-content")}>
-              <h3 className={cb("title-desc")}>{songTitle}</h3>
-              <p className={cb("author-desc")}>{songAuthor}</p>
+              <h3 data-song-title={songTitle} className={cb("title-desc")}>
+                {songTitle}
+              </h3>
+              <p data-song-author={songAuthor} className={cb("author-desc")}>
+                {songAuthor}
+              </p>
             </div>
           </div>
         </div>

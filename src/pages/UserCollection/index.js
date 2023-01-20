@@ -15,9 +15,10 @@ function UserCollection() {
       </section>
       <section className={cb("list-song")}>
         <ListSong>
-          {getSongApi.playlists.userCollection.map((song) => {
+          {getSongApi.playlists.userCollection.map((song, index) => {
             return (
               <Song
+                dataID={index}
                 key={song.id}
                 songID={song.id}
                 songAuthor={song.author}

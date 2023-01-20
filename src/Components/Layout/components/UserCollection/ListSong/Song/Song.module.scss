@@ -104,16 +104,12 @@
   color: #1ed760;
 }
 
-[data-song].active {
-  .item {
-    background-color: #5a5a5a;
-  }
+[data-song="song-active"] {
   .numbered h3,
   .title-desc {
     color: #1ed760;
   }
-  .author-desc,
-  .album-desc {
-    color: var(--text-base);
+  .active-img-icon {
+    color: inherit;
   }
 }

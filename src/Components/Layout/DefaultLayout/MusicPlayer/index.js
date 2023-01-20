@@ -2,7 +2,7 @@ import { SongContext } from "~/store/SongContext";
 import styles from "./MusicPlayer.module.scss";
 import classNames from "classnames/bind";
 import Image from "~/Components/Image";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   DeviceIcon,
   FlexBackIcon,
@@ -18,8 +18,22 @@ import {
 const cb = classNames.bind(styles);
 function MusicPlayer() {
   const context = useContext(SongContext);
-  const [songTitle, setSongTitle] = useState("Và ngày nào đó");
-  const [songAuthor, setSongAuthor] = useState("Vũ Thảo My");
+  const [songTitle, setSongTitle] = useState("");
+  const [songAuthor, setSongAuthor] = useState("");
+  const [songThumbnail, setSongThumbnail] = useState("");
+  useEffect(() => {
+    const firstSongOfUserCollection = document.querySelector("[data-id='0']");
+    const firstSongTitle =
+      firstSongOfUserCollection.querySelector("[data-song-title]").innerHTML;
+    const firstSongThumbnail = firstSongOfUserCollection
+      .querySelector("[data-song-thumbnail]")
+      .getAttribute("data-song-thumbnail");
+    const firstSongAuthor =
+      firstSongOfUserCollection.querySelector("[data-song-author]").innerHTML;
+    setSongTitle(firstSongTitle);
+    setSongAuthor(firstSongAuthor);
+    setSongThumbnail(firstSongThumbnail);
+  }, []);
   const handlleAudioProgress = () => {
     console.log("Check");
   };
@@ -32,7 +46,11 @@ function MusicPlayer() {
       <div className={cb("inner")}>
         <div className={cb("song-description")}>
           <div>
-            <Image className={cb("song-image")} />
+            <Image
+              className={cb("song-image")}
+              src={songThumbnail}
+              alt={"Ảnh Bài Hát"}
+            />
           </div>
           <div className={cb("song-content")}>
             <div className={cb("wrapper-song-title")}>
