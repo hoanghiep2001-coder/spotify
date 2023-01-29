@@ -3,13 +3,13 @@ import Sidebar from "./Sidebar";
 import styles from "./DefaultLayout.module.scss";
 import classNames from "classnames/bind";
 import MusicPlayer from "./MusicPlayer";
-import { useEffect, useRef } from "react";
 
 const cb = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
   const sidebarHeight = window.innerHeight - 90 + "px";
   const contentHeight = window.innerHeight - 90 - 64 + "px";
+
   return (
     <div
       className={cb("wrapper")}

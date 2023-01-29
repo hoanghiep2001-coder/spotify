@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import { useCallback } from "react";
 import { PauseIcon2 } from "~/Components/Icons/icons";
 import ListSong from "~/Components/Layout/components/UserCollection/ListSong";
 import Song from "~/Components/Layout/components/UserCollection/ListSong/Song";
@@ -27,7 +28,7 @@ function UserCollection() {
                 songAlbum={song.album}
                 songTitle={song.title}
                 songThumb={song.thumbnail}
-                onClick={song.url}
+                songUrl={song.url}
               />
             );
           })}

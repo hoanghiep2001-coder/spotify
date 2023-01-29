@@ -19,6 +19,7 @@ function HeaderComp({ ...props }) {
     opacity: "0",
     backgroundColor: "rgb(29,13,70)",
   });
+  const [arrownDwonRotate, setArrownDwonRotate] = useState({});
   useEffect(() => {
     const handleWindowScroll = () => {
       if (window.scrollY > 100) {
@@ -79,7 +80,17 @@ function HeaderComp({ ...props }) {
             interactive
             placement="top-start"
             render={(attrs) => (
-              <div className={cb("widget-list")} tabIndex="-1" {...attrs}>
+              <div
+                className={cb("widget-list")}
+                tabIndex="-1"
+                {...attrs}
+                onMouseEnter={() =>
+                  setArrownDwonRotate({
+                    transform: "rotate(180deg)",
+                  })
+                }
+                onMouseLeave={() => setArrownDwonRotate({})}
+              >
                 <WidgetItem title="Tài khoản" icon={<UpgradeIcon />} link="/" />
                 <WidgetItem title="Hồ sơ" link="/" />
                 <WidgetItem
@@ -101,7 +112,10 @@ function HeaderComp({ ...props }) {
                 className={cb("user-avatar")}
               />
               <h3 className={cb("user-name")}>Dương Hiệp</h3>
-              <ArrownDownIcon className={cb("icon-arrownDown")} />
+              <ArrownDownIcon
+                className={cb("icon-arrownDown")}
+                style={arrownDwonRotate}
+              />
             </div>
           </Tippy>
         </div>

@@ -33,6 +33,7 @@ function RootList({ status = false }) {
         <NavLink
           className={(nav) => cb("item", { active: nav.isActive })}
           to={"/userCollection"}
+          data-
         >
           <div className={cb("icon-wrapper-collection")}>
             <HeartIcon className={cb("icon")} />

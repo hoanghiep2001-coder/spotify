@@ -3,6 +3,9 @@ import { createContext, useState } from "react";
 const SongContext = createContext();
 
 function SongProvider({ children }) {
+  // get audio element
+  const audio = document.querySelector("#audio");
+
   const [playSong, setPlaySong] = useState(false);
   const [mixSong, setMixSong] = useState(false);
   const [randomSong, setRandomSong] = useState(false);
@@ -30,6 +33,7 @@ function SongProvider({ children }) {
   };
 
   const value = {
+    audio,
     playSong,
     mixSong,
     randomSong,

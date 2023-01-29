@@ -1,11 +1,14 @@
 import classNames from "classnames/bind";
-import { useState } from "react";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { useState, memo } from "react";
 import {
   HeartHightlightIcon,
   PauseIcon,
   PlayIcon2,
 } from "~/Components/Icons/icons";
 import Image from "~/Components/Image";
+import { SongContext } from "~/store/SongContext";
 import styles from "./Song.module.scss";
 const cb = classNames.bind(styles);
 
@@ -17,7 +20,7 @@ function Song({
   songAuthor,
   songAlbum,
   songDuration,
-  onClick,
+  songUrl,
 }) {
   const [songActiveClass, setSongActiveClass] = useState("song-default");
   const [toggleSongIcon, setToggleSongIcon] = useState(false);
@@ -25,25 +28,42 @@ function Song({
   const date = new Date();
   const today = date.getDate();
   let dayCreatedHtml = today - dayCreated;
+  const context = useContext(SongContext);
+
   const handleActiveClickSong = () => {
     const activeSong = document.querySelector("[data-song='song-active']");
-    console.log(document.querySelectorAll("[data-song='song-active']"));
     if (activeSong) {
       activeSong.setAttribute("data-song", "song-default");
+    } else {
+      setSongActiveClass("song-active");
     }
-    setSongActiveClass("song-active");
   };
   const handlePlaySong = () => {
-    localStorage.setItem("now_playing", onClick);
-    const audio = document.querySelector("#audio");
-    audio.setAttribute("src", localStorage.getItem("now_playing"));
-    audio.play();
+    context.togglePlaySong(true);
+    localStorage.setItem("now_playing", songUrl);
+    context.audio.setAttribute("src", localStorage.getItem("now_playing"));
+    context.audio.play();
   };
+
+  useEffect(() => {
+    if (context.playSong === true) {
+      context.audio.play();
+    } else {
+      context.audio.pause();
+    }
+
+    return () => {};
+  }, [context.playSong]);
+
+  useEffect(() => {
+    context.audio.setAttribute("src", localStorage.getItem("now_playing"));
+  }, [context.audio]);
+
   const handleSetToggleSongIcon = () => {
     if (songActiveClass === "song-active") {
-      setToggleSongIcon(<PauseIcon width="1.4rem" height="1.4rem" />);
+      setToggleSongIcon(<PauseIcon width="1.3rem" height="1.3rem" />);
     } else {
-      setToggleSongIcon(<PlayIcon2 width="1.4rem" height="1.4rem" />);
+      setToggleSongIcon(<PlayIcon2 width="1.3rem" height="1.3rem" />);
     }
   };
   const removeHandleSetToggleSongIcon = () => {
@@ -71,7 +91,7 @@ function Song({
                 alt="play-note-icon"
               />
             ) : (
-              <h3>{toggleSongIcon === false ? songID : toggleSongIcon}</h3>
+              <h3>{toggleSongIcon ? toggleSongIcon : songID}</h3>
             )}
           </div>
           <div className={cb("title-wrapper")}>
@@ -98,7 +118,7 @@ function Song({
         </div>
         <div className={cb("createdAt")} element-explain="col-2">
           <h3 className={cb("createdAt-desc")}>
-            {dayCreatedHtml == 0 ? "Hôm qua" : `${dayCreatedHtml} ngày trước`}
+            {dayCreatedHtml === 0 ? "Hôm qua" : `${dayCreatedHtml} ngày trước`}
           </h3>
         </div>
         <div className={cb("time")} element-explain="col-2">
@@ -114,4 +134,4 @@ function Song({
   );
 }
 
-export default Song;
+export default memo(Song);

@@ -21,19 +21,14 @@ function MusicPlayer() {
   const [songTitle, setSongTitle] = useState("");
   const [songAuthor, setSongAuthor] = useState("");
   const [songThumbnail, setSongThumbnail] = useState("");
-  useEffect(() => {
-    const firstSongOfUserCollection = document.querySelector("[data-id='0']");
-    const firstSongTitle =
-      firstSongOfUserCollection.querySelector("[data-song-title]").innerHTML;
-    const firstSongThumbnail = firstSongOfUserCollection
-      .querySelector("[data-song-thumbnail]")
-      .getAttribute("data-song-thumbnail");
-    const firstSongAuthor =
-      firstSongOfUserCollection.querySelector("[data-song-author]").innerHTML;
-    setSongTitle(firstSongTitle);
-    setSongAuthor(firstSongAuthor);
-    setSongThumbnail(firstSongThumbnail);
-  }, []);
+
+  // const songAPI = JSON.parse(localStorage.getItem("api"));
+  // const songListFromAPI = console.log(songAPI.playlists.userCollection);
+  // useEffect(() => {
+  //  const loadCurrentSong = () => {
+
+  //  }
+  // })
   const handlleAudioProgress = () => {
     console.log("Check");
   };

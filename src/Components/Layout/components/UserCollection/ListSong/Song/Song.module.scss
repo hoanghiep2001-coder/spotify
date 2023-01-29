@@ -14,6 +14,14 @@
   }
 }
 
+@mixin text-title {
+  font: {
+    size: 1.5rem;
+    weight: 700;
+  }
+  color: var(--text-base);
+}
+
 .title {
   display: flex;
   flex: 0 0 41.6667%;
@@ -56,9 +64,20 @@
   flex-direction: column;
 }
 
+.title-desc,
+.author-desc,
+.album-desc {
+  display: block;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
 .title-desc {
-  font-size: 1.5rem;
-  color: var(--text-base);
+  @include text-title;
   margin-bottom: 4px;
 }
 

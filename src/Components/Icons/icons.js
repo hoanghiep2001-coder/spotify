@@ -245,6 +245,7 @@ export const ArrownDownIcon = ({
   width = "1.6rem",
   height = "1.6rem",
   className,
+  style,
 }) => (
   <svg
     role="img"
@@ -255,6 +256,7 @@ export const ArrownDownIcon = ({
     viewBox="0 0 16 16"
     fill="currentColor"
     data-encore-id="icon"
+    style={style}
   >
     <path d="M14 6l-6 6-6-6h12z"></path>
   </svg>

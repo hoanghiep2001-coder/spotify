@@ -81,6 +81,11 @@
   padding: 2px;
   gap: 8px;
   cursor: pointer;
+  &:hover {
+    .icon-arrownDown {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 .user-actions {
@@ -109,4 +114,14 @@
   -webkit-box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%);
   background-color: #282828;
   min-width: 210px;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    height: 20px;
+    width: 100%;
+    background-color: transparent;
+  }
 }
